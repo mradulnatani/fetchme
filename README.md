@@ -76,6 +76,6 @@ This project is licensed under the MIT License.
 ## Contact
 For any issues or suggestions, please open an issue on GitHub or reach out via email.
 
-![FetchMe Example](https://github.com/mradulnatani/fetchme/Screenshot_29-Mar_02-33-46_6189.png)
+![FetchMe Screenshot](https://github.com/mradulnatani/fetchme/blob/main/Screenshot_29-Mar_02-33-46_6189.png?raw=true)
 
 
