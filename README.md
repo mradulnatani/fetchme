@@ -15,8 +15,8 @@ To install FetchMe, follow these steps:
 
 ### 1️⃣ Download the Repository
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/mradulnatani/fetchme.git
+cd fetchme
 ```
 
 ### 2️⃣ Run the Installation Script
