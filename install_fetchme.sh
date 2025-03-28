@@ -1,36 +1,39 @@
 #!/bin/bash
 
-set -e  
+set -e  # Exit on error
 
-if [[ ! -f /usr/local/bin/fetchme ]]; then
-    sudo mv fetchme /usr/local/bin/fetchme
+if [[ -f ./fetchme ]]; then
+    sudo mv ./fetchme /usr/local/bin/fetchme
 fi
 sudo chmod +x /usr/local/bin/fetchme
 
-# Create systemd service file
 SERVICE_FILE="/etc/systemd/system/fetchme.service"
 
-echo "[Unit]
+# Create or overwrite systemd service file
+sudo tee "$SERVICE_FILE" > /dev/null <<EOF
+[Unit]
 Description=FetchMe System Info Command
 After=network.target
 
 [Service]
 ExecStart=/usr/local/bin/fetchme
-Type=simple
+Type=oneshot
+RemainAfterExit=true
 StandardOutput=journal
 StandardError=journal
-Restart=always
 
 [Install]
-WantedBy=default.target" | sudo tee $SERVICE_FILE > /dev/null
+WantedBy=multi-user.target
+EOF
 
-# Reload systemd, enable and start the service
+sudo chmod 644 "$SERVICE_FILE"
+
+# Reload systemd and start the service
 sudo systemctl daemon-reload
-sudo systemctl enable fetchme.service
 sudo systemctl start fetchme.service
 
 # Create a symlink in /usr/bin for easy execution
-if [[ ! -f /usr/bin/fetchme ]]; then
+if [[ ! -L /usr/bin/fetchme ]]; then
     sudo ln -s /usr/local/bin/fetchme /usr/bin/fetchme
 fi
 
