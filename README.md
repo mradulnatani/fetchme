@@ -1,6 +1,6 @@
 # FetchMe - System Information Fetcher
 
-![FetchMe Screenshot](https://github.com/mradulnatani/fetchme/blob/main/Screenshot_29-Mar_02-33-46_6189.png?raw=true)
+![FetchMe Screenshot](https://github.com/mradulnatani/fetchme/blob/main/demo.png?raw=true)
 
 ## Overview
 **FetchMe** is a simple system information fetcher that provides useful details about your system. It is designed to run as a **one-shot systemd service**, ensuring that it executes once and does not continuously restart. The installation script automates the setup, making it easy for users to deploy and use FetchMe.
