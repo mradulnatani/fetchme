@@ -44,12 +44,6 @@ Once installed, FetchMe can be executed in two ways:
 fetchme
 ```
 
-### Check Logs
-To view the latest execution logs:
-```bash
-journalctl -u fetchme --no-pager --lines=20
-```
-
 ## Uninstallation
 If you want to remove FetchMe from your system, follow these steps:
 ```bash
@@ -60,14 +54,6 @@ sudo rm -f /usr/local/bin/fetchme
 sudo rm -f /usr/bin/fetchme
 sudo systemctl daemon-reload
 ```
-
-## Troubleshooting
-- **FetchMe command not found?**
-  - Ensure the script has been executed correctly.
-  - Try reloading systemd: `sudo systemctl daemon-reload`
-- **Service not running?**
-  - Check the logs: `journalctl -u fetchme --no-pager`
-  - Start the service manually: `sudo systemctl start fetchme.service`
 
 ## License
 This project is licensed under the MIT License.
